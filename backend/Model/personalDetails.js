@@ -3,15 +3,15 @@ const mongoose = require("mongoose");
 const personalDetailsSchema = mongoose.Schema({
   name: {
     type: String,
-    required: true,
+    required: false,
   },
   dateOfBirthOrAge: {
     type: String,
-    required: true,
+    required: false,
   },
   sex: {
     type: String,
-    required: true,
+    required: false,
   },
   mobile: {
     type: Number,

@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const userDetailsSchema = mongoose.Schema({
   personalDetails: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "personal - detail",
-    required: true,
+    ref: "personal-detail",
+    required: false,
   },
   contactDetails: {
     type: mongoose.Schema.Types.ObjectId,

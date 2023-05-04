@@ -2,58 +2,62 @@ const express = require("express");
 const router = express.Router();
 require("../Database/databaseConnect");
 
-const userList = require("../Model/userDetails");
+// const userDetails = require("../Model/userDetails");
+const userDetails = require("../Model/testScheema");
 
 router.post("/post-user", async (req, res) => {
+  const {
+    name,
+    dateOfBirthOrAge,
+    sex,
+    mobile,
+    govtIssueId,
+    adhar,
+    pan,
+    occupation,
+    religion,
+    maritalStatus,
+    bloodGroup,
+    nationlity,
+    guardianDetails,
+    email,
+    emergencyContactNo,
+    address,
+    state,
+    city,
+    country,
+    pincode,
+  } = req.body;
+
+  if (!name || !dateOfBirthOrAge || !sex)
+    return res.status(422).json({ error: `Input Field Required` });
+
+  console.log(req.body);
+
+  const newUser = new userDetails({
+    name,
+    dateOfBirthOrAge,
+    sex,
+    mobile,
+    govtIssueId,
+    adhar,
+    pan,
+    occupation,
+    religion,
+    maritalStatus,
+    bloodGroup,
+    nationlity,
+    guardianDetails,
+    email,
+    emergencyContactNo,
+    address,
+    state,
+    city,
+    country,
+    pincode,
+  });
+
   try {
-    const {
-      name,
-      dateOfBirthOrAge,
-      sex,
-      mobile,
-      govtIssueId,
-      adhar,
-      pan,
-      occupation,
-      religion,
-      maritalStatus,
-      bloodGroup,
-      nationlity,
-      guardianDetails,
-      email,
-      emergencyContactNo,
-      address,
-      state,
-      city,
-      country,
-      pincode,
-    } = req.body;
-    if (!name || !dateOfBirthOrAge || sex)
-      return res.status(422).json({ error: `Input Field Required` });
-
-    const newUser = new userList({
-      name,
-      dateOfBirthOrAge,
-      sex,
-      mobile,
-      govtIssueId,
-      adhar,
-      pan,
-      occupation,
-      religion,
-      maritalStatus,
-      bloodGroup,
-      nationlity,
-      guardianDetails,
-      email,
-      emergencyContactNo,
-      address,
-      state,
-      city,
-      country,
-      pincode,
-    });
-
     await newUser.save();
     res.status(201).json({ message: `user Added SucessFully` });
   } catch (err) {
@@ -63,7 +67,7 @@ router.post("/post-user", async (req, res) => {
 });
 
 router.get("/user-list", (req, res) => {
-  userList
+  userDetails
     .find()
     .then((user) => res.send(user))
     .catch((err) =>
