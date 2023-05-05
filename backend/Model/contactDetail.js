@@ -1,23 +1,17 @@
 const mongoose = require("mongoose");
 
 const contactDetailSchema = mongoose.Schema({
-  guardianDetails: {
-    prefix: {
-      type: String,
-      required: false,
-    },
-    name: {
-      type: String,
-      required: false,
-    },
+  guardianDetailsLable: {
+    type: String,
+  },
+  guardianName: {
+    type: String,
   },
   email: {
     type: String,
-    required: false,
   },
   emergencyContactNo: {
-    type: Number,
-    required: false,
+    type: String,
   },
 });
 

@@ -1,12 +1,16 @@
 const express = require("express");
 const app = express();
 
+// const cors = require("cors");
+// app.use(cors());
+
 require("./Database/databaseConnect");
 app.use(express.json());
 require("./Model/userDetails");
 
 app.use(require("./Router/router"));
 
-app.listen(3000, () => {
+app.listen(5000, () => {
   "connected sucessfully";
 });
+

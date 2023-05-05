@@ -66,7 +66,7 @@ router.post("/post-user", async (req, res) => {
   }
 });
 
-router.get("/user-list", (req, res) => {
+router.get("/get/user", (req, res) => {
   userDetails
     .find()
     .then((user) => res.send(user))

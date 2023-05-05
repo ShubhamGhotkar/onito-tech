@@ -3,29 +3,24 @@ const mongoose = require("mongoose");
 const personalDetailsSchema = mongoose.Schema({
   name: {
     type: String,
-    required: false,
   },
   dateOfBirthOrAge: {
     type: String,
-    required: false,
   },
   sex: {
     type: String,
-    required: false,
   },
   mobile: {
-    type: Number,
-    required: false,
+    type: String,
   },
-  govtIssueId: {
-    adhar: {
-      type: String,
-      required: false,
-    },
-    pan: {
-      type: String,
-      required: false,
-    },
+  govtIssueIdtype: {
+    type: String,
+  },
+  govtId: {
+    type: String,
+  },
+  govtId: {
+    type: String,
   },
 });
 
